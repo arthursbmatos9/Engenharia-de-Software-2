@@ -51,7 +51,7 @@ class ScreenObserver extends Observer {
     }
     
     update(task, status) {
-        const statusText = status === 'em_andamento' ? 'em andamento' : status;
+        const statusText = status === 'Em Andamento' ? 'Em andamento' : status;
         const message = `A tarefa "${task.getTitle()}" foi marcada como ${statusText}.`;
         
         // Mostrar toast na tela
@@ -78,7 +78,7 @@ class EmailObserver extends Observer {
     }
     
     update(task, status) {
-        const statusText = status === 'em_andamento' ? 'em andamento' : status;
+        const statusText = status === 'Em Andamento' ? 'Em andamento' : status;
         const message = `EMAIL: Notificação - A tarefa "${task.getTitle()}" do tipo ${task.getType()} foi atualizada para "${statusText}".`;
         
         // Simular envio de email (apenas log)
@@ -98,7 +98,7 @@ class LogObserver extends Observer {
     }
     
     update(task, status) {
-        const statusText = status === 'em_andamento' ? 'em andamento' : status;
+        const statusText = status === 'Em Andamento' ? 'Em andamento' : status;
         const timestamp = new Date().toISOString();
         const message = `LOG [${timestamp}]: Tarefa #${task.getId()} "${task.getTitle()}" mudou status para "${statusText}"`;
         
@@ -117,7 +117,7 @@ class PushObserver extends Observer {
     }
     
     update(task, status) {
-        const statusText = status === 'em_andamento' ? 'em andamento' : status;
+        const statusText = status === 'Em Andamento' ? 'Em andamento' : status;
         const timestamp = new Date().toISOString();
         const message = `PUSH [${timestamp}]: Tarefa #${task.getId()} "${task.getTitle()}" mudou status para "${statusText}"`;
         

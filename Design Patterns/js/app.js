@@ -8,5 +8,5 @@ document.addEventListener('DOMContentLoaded', () => {
     uiController.renderNotifications();
     
     console.log('Aplicação de Gerenciamento de Tarefas inicializada com sucesso!');
-    console.log('Padrões de Design implementados: Factory Method, Decorator e Observer.');
+    console.log('Padrões de Design implementados: Factory, Observer, Decorator, Composite, Singleton e Strategy.');
 });

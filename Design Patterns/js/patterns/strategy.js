@@ -89,9 +89,9 @@ class StatusPendingFirstStrategy extends SortStrategy {
     sort(tasks) {
         return [...tasks].sort((a, b) => {
             const statusOrder = {
-                'pendente': 0,
-                'em_andamento': 1,
-                'concluida': 2
+                'Pendente': 0,
+                'Em Andamento': 1,
+                'Concluída': 2
             };
             
             return statusOrder[a.getStatus()] - statusOrder[b.getStatus()];
@@ -110,9 +110,9 @@ class StatusCompletedFirstStrategy extends SortStrategy {
     sort(tasks) {
         return [...tasks].sort((a, b) => {
             const statusOrder = {
-                'concluida': 0,
-                'em_andamento': 1,
-                'pendente': 2
+                'Concluída': 0,
+                'Em Andamento': 1,
+                'Pendente': 2
             };
             
             return statusOrder[a.getStatus()] - statusOrder[b.getStatus()];
@@ -170,7 +170,7 @@ class ShowAllFilterStrategy extends FilterStrategy {
  */
 class PendingFilterStrategy extends FilterStrategy {
     filter(tasks) {
-        return tasks.filter(task => task.getStatus() === 'pendente');
+        return tasks.filter(task => task.getStatus() === 'Pendente');
     }
     
     getName() {
@@ -183,7 +183,7 @@ class PendingFilterStrategy extends FilterStrategy {
  */
 class InProgressFilterStrategy extends FilterStrategy {
     filter(tasks) {
-        return tasks.filter(task => task.getStatus() === 'em_andamento');
+        return tasks.filter(task => task.getStatus() === 'Em Andamento');
     }
     
     getName() {
@@ -196,7 +196,7 @@ class InProgressFilterStrategy extends FilterStrategy {
  */
 class CompletedFilterStrategy extends FilterStrategy {
     filter(tasks) {
-        return tasks.filter(task => task.getStatus() === 'concluida');
+        return tasks.filter(task => task.getStatus() === 'Concluída');
     }
     
     getName() {

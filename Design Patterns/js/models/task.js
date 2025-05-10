@@ -6,7 +6,7 @@ class Task {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.status = 'pendente'; // pendente, em_andamento, concluída
+        this.status = 'Pendente'; // Pendente, Em Andamento, concluída
         this.createdAt = new Date();
     }
     
@@ -40,22 +40,23 @@ class Task {
     
     // Método para obter representação visual da tarefa (usado na UI)
     getHtmlRepresentation() {
-        return `
-            <div class="list-group-item task-item" id="task-${this.id}">
-                <h5 class="mb-1">${this.getTitle()}</h5>
-                <p class="mb-1">${this.getDescription()}</p>
-                <small>Criada em: ${this.createdAt.toLocaleString()}</small>
-                <div class="d-flex justify-content-between align-items-center mt-2">
-                    <span class="badge bg-secondary">${this.getType()}</span>
-                    <div class="btn-group">
-                        <button class="btn btn-sm btn-outline-primary status-btn" data-task-id="${this.id}" data-status="em_andamento">Em Andamento</button>
-                        <button class="btn btn-sm btn-outline-success status-btn" data-task-id="${this.id}" data-status="concluida">Concluída</button>
-                        <button class="btn btn-sm btn-outline-danger delete-btn" data-task-id="${this.id}">Excluir</button>
-                    </div>
-                </div>
+    return `
+        <div class="list-group-item task-item">
+            <div class="task-content">
+                <h5>${this.getTitle()}</h5>
+                <p>${this.getDescription()}</p>
+                <span class="badge bg-info me-2">${this.getType()}</span>
+                <span class="badge bg-secondary">${this.status}</span>
+                <br><small>Criada em: ${this.createdAt.toLocaleString()}</small>
             </div>
-        `;
-    }
+            <div class="task-actions">
+                <button class="btn btn-sm btn-outline-primary status-btn" data-task-id="${this.id}" data-status="Em Andamento">Em Andamento</button>
+                <button class="btn btn-sm btn-outline-success status-btn" data-task-id="${this.id}" data-status="Concluída">Concluída</button>
+                <button class="btn btn-sm btn-outline-danger delete-btn" data-task-id="${this.id}">Excluir</button>
+            </div>
+        </div>
+    `;
+}
 }
 
 /**
